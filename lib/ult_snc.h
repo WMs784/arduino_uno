@@ -1,12 +1,13 @@
 #define rep(i,n) for (int i = 0;i < (int)n;i++)
-#define trigPin 11
-#define echoPin 12
+#define trigPin 12
+#define echoPin1 13
+#define echoPin2 A0
 float duration = 0;
 float res_distance = 0;
 
 void set_ult_snc(){
   pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  pinMode(echoPin1, INPUT);
 }
 float dis(){
   rep(i,6) {

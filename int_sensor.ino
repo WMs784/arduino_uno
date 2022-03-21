@@ -13,7 +13,7 @@
 using namespace std;
 
 #define length 20
-#define width 20
+#define width 10
 #define det_dis 10
 //const sint length = 20,width = 20, det_dis = 5;
 char cur_x = length/2, cur_y = width/2;
@@ -97,24 +97,24 @@ void scan(){
     // rep(i,2)Serial.println(trans[i]);
 }
 
-//sint find(){
-//    rep(i,length-10){
-//        rep(j,width-10){
-//            bool b = true;
-//            rep(k,10){
-//                if(!b)break;
-//                rep(l,10){
-//                    if(field_map[i+k][j+l] != 0){
-//                        b = false;
-//                        break;
-//                    }
-//                }
-//            }
-//            if(b)return (i+5)*100+(j+5);
-//        }
-//    }
-//    return 0;
-//}
+sint find(){//次の移動場所を返す関数
+   rep(i,length-10){
+       rep(j,width-10){
+           bool b = true;
+           rep(k,10){
+               if(!b)break;
+               rep(l,10){
+                   if(field_map[i+k][j+l] != 0){
+                       b = false;
+                       break;
+                   }
+               }
+           }
+           if(b)return (i+5)*100+(j+5);
+       }
+   }
+   return (rand()%20)*100+rand()%20;//移動したい場所が見つからない場合はランダムで生成
+}
 
 void setup() {
   // put your setup code here, to run once:
@@ -124,12 +124,21 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(BLUE, HIGH);
+  delay(1000);
   scan();
   int time = millis();
   Serial.println(time);
+  delay(1000);
   digitalWrite(BLUE, LOW);
-//  sint goal = find();
+  sint goal = find();
   int time2 = millis();
-//  Serial.println(goal);
+  digitalWrite(GREEN, HIGH);
+  Serial.println(goal);
+  delay(1000);
+  digitalWrite(GREEN, LOW);
   Serial.println(time2);
+//  Serial.println(dis());
+  rep(i,6){
+    myservo.write(i * 30); 
+  }
 }
