@@ -5,7 +5,7 @@ void set_led();
 
 #endif
 
-#define WHITE A1
+#define WHITE A3
 
 void set_led(){
   pinMode(WHITE, OUTPUT);

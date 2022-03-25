@@ -119,25 +119,38 @@ sint find(){//次の移動場所を返す関数
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  setup_sensors();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(BLUE, HIGH);
+//   digitalWrite(WHITE, HIGH);
+//   digitalWrite(motor22, HIGH);
+//   digitalWrite(motor21, LOW);
+//   delay(5000);
+//   digitalWrite(motor21, LOW);
+//   digitalWrite(motor22, HIGH);
+  myservo.write(0);
+  straight(20);
+  digitalWrite(WHITE, LOW);
+  digitalWrite(WHITE, HIGH);
   delay(1000);
-  scan();
+  myservo.write(70);
+  delay(1000);
+  right_rotate(60);
+  digitalWrite(WHITE, LOW);
   int time = millis();
   Serial.println(time);
   delay(1000);
-  digitalWrite(BLUE, LOW);
+//  digitalWrite(BLUE, LOW);
   sint goal = find();
   int time2 = millis();
-  digitalWrite(GREEN, HIGH);
+  digitalWrite(WHITE, HIGH);
   Serial.println(goal);
   delay(1000);
-  digitalWrite(GREEN, LOW);
+  digitalWrite(WHITE, LOW);
   Serial.println(time2);
-//  Serial.println(dis());
+  Serial.println(dis1());
   rep(i,6){
     myservo.write(i * 30); 
   }
