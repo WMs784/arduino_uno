@@ -80,6 +80,7 @@ void scan(){
     float r = 10.0, theta = 30.0;//本来は超音波センサから取得した値が入る
     sint div = 15;
     rep(i,180/div){
+        right_rotate(div);
         set_map(r,i*div);
     }
     que.push(100*cur_x+cur_y);
@@ -123,26 +124,18 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-//   digitalWrite(WHITE, HIGH);
-//   digitalWrite(motor22, HIGH);
-//   digitalWrite(motor21, LOW);
-//   delay(5000);
-//   digitalWrite(motor21, LOW);
-//   digitalWrite(motor22, HIGH);
-  myservo.write(0);
-  straight(20);
+  myservo.write(0);     //プーリー下げる
+  straight(20);         //直進
   digitalWrite(WHITE, LOW);
   digitalWrite(WHITE, HIGH);
   delay(1000);
-  myservo.write(70);
+  myservo.write(70);    //プーリー上げる
   delay(1000);
   right_rotate(60);
   digitalWrite(WHITE, LOW);
   int time = millis();
   Serial.println(time);
   delay(1000);
-//  digitalWrite(BLUE, LOW);
   sint goal = find();
   int time2 = millis();
   digitalWrite(WHITE, HIGH);
