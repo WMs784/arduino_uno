@@ -5,44 +5,44 @@
 
 #define CS 4
 
-// void setup_sd() {
-//     Serial.begin(9600); //シリアル通信開始
-//     Serial.println("Initializing SD.....");
-//     pinMode(10, OUTPUT);
+void setup_sd() {
+    Serial.begin(9600); //シリアル通信開始
+    Serial.println("Initializing SD.....");
+    pinMode(10, OUTPUT);
 
-//     if (!SD.begin(CS)) {
-//         Serial.println("not found SD");
-//     } 
-//     else {
-//         Serial.println("SD OK");
-//         File dataFile = SD.open("log.txt", FILE_WRITE);
+    if (!SD.begin(CS)) {
+        Serial.println("not found SD");
+    } 
+    else {
+        Serial.println("SD OK");
+        File dataFile = SD.open("log.txt", FILE_WRITE);
         
-//         if (dataFile) {
-//          Serial.print("Writing to log.txt..."); //シリアルコンソールに値を表示
-//          dataFile.close();
-//          Serial.println("done");
-//         } 
-//         else {
-//           Serial.println("dataFile write error!");
-//           dataFile.close();
-//     }
-//     }
-//     File dataFile = SD.open("log.txt", FILE_WRITE);
-//     if (dataFile) {
-//       Serial.println("log.txt:");
+        if (dataFile) {
+         Serial.print("Writing to log.txt..."); //シリアルコンソールに値を表示
+         dataFile.close();
+         Serial.println("done");
+        } 
+        else {
+          Serial.println("dataFile write error!");
+          dataFile.close();
+    }
+    }
+    File dataFile = SD.open("log.txt", FILE_WRITE);
+    if (dataFile) {
+      Serial.println("log.txt:");
 
-//     // read from the file until there's nothing else in it:
-//     while (dataFile.available()) {
-//       Serial.write(dataFile.read());
-//     }
-//     // close the file:
-//     dataFile.close();
-//     } 
-//     else {
-//     // if the file didn't open, print an error:
-//     Serial.println("error opening log.txt");    
-//     }
-// }
+    // read from the file until there's nothing else in it:
+    while (dataFile.available()) {
+      Serial.write(dataFile.read());
+    }
+    // close the file:
+    dataFile.close();
+    } 
+    else {
+    // if the file didn't open, print an error:
+    Serial.println("error opening log.txt");    
+    }
+}
 
 // void loop_map(char field_map[200][100], short int length, short int width) {
 //     File dataFile = SD.open("log.txt", FILE_WRITE);
