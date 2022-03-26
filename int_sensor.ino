@@ -1,3 +1,4 @@
+#include <SD.h>
 #include "ArduinoSTL.h" 
 #include "vector"
 #include "iostream"
