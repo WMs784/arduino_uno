@@ -1,7 +1,7 @@
 #define rep(i,n) for (int i = 0;i < (int)n;i++)
-#define echoPin1 = A0; //前方
-#define echoPin2 = A1; //後方
-#define trigPin = A2;
+#define echoPin1 A0 //前方
+#define echoPin2 A1 //後方
+#define trigPin A2
 double duration1 = 0;
 double distance1 = 0;
 double duration2 = 0;

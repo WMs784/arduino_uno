@@ -9,13 +9,13 @@
 //   pinMode(motor21, OUTPUT);
 //   pinMode(motor22, OUTPUT);
 // }
-#define motor11 = 2;
-#define motor12 = 3;
-#define motor21 = 6;
-#define motor22 = 5;
-#define PWM = A5;
-#define pinA = 7;
-#define pinB = 8;
+#define motor11 2
+#define motor12 3
+#define motor21 6
+#define motor22 5
+#define PWM A5
+#define pinA 7
+#define pinB 8
 // #define echoPin1 = A0; //前方
 // #define echoPin2 = A1; //後方
 // #define trigPin = A2;
