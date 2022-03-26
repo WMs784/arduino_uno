@@ -144,7 +144,4 @@ void loop() {
   digitalWrite(WHITE, LOW);
   Serial.println(time2);
   Serial.println(dis1());
-  rep(i,6){
-    myservo.write(i * 30); 
-  }
 }
