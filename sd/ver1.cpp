@@ -16,7 +16,6 @@ void setup_sd() {
     else {
         Serial.println("SD OK");
         File dataFile = SD.open("log.txt", FILE_WRITE);
-        File tableFile = SD.open("table.txt", FILE_WRITE);
         
         if (dataFile) {
          Serial.print("Writing to log.txt..."); //シリアルコンソールに値を表示
@@ -25,14 +24,7 @@ void setup_sd() {
         } 
         else {
           Serial.println("dataFile write error!");
-    }
-        if (tableFile) {
-         Serial.print("Writing to table.txt..."); //シリアルコンソールに値を表示
-         tableFile.close();
-         Serial.println("done");
-        } 
-        else {
-          Serial.println("tableFile write error!");
+          dataFile.close();
     }
     }
     File dataFile = SD.open("log.txt", FILE_WRITE);
@@ -49,22 +41,6 @@ void setup_sd() {
     else {
     // if the file didn't open, print an error:
     Serial.println("error opening log.txt");    
-    }
-    
-    File tableFile = SD.open("log.txt", FILE_WRITE);
-    if (tableFile) {
-      Serial.println("table.txt:");
-
-    // read from the file until there's nothing else in it:
-    while (tableFile.available()) {
-      Serial.write(tableFile.read());
-    }
-    // close the file:
-    tableFile.close();
-    } 
-    else {
-    // if the file didn't open, print an error:
-    Serial.println("error opening table.txt");    
     }
 }
 
@@ -182,7 +158,7 @@ void exporting(char chunk_map[4][11][11], short int cur_x, short int cur_y, shor
     delay(2000);
 }
 
-
+#include <math.h> 
 void r_theta_table(unsigned char r_theta_map[2][15][15], short int rel_x_1, short int rel_y_1){
     File tableFile = SD.open("table.txt", FILE_WRITE);
     if(tableFile){
@@ -210,10 +186,6 @@ void r_theta_table(unsigned char r_theta_map[2][15][15], short int rel_x_1, shor
 }
 delay(2000);
 }
-
-//↑ここまでOK
-
-
 
 void SD_read_map(char map_memory[12][5][5], short int X[5], short int Y[5]){ //X,Yは12 map_memoryは12*5*5
     File dataFile = SD.open("log.txt", FILE_READ);
