@@ -76,8 +76,8 @@ vector<float> move(sint cur,sint goal){
     }
 }
 
-void scan(){
-    float r = 10.0, theta = 30.0;//本来は超音波センサから取得した値が入る
+void scan(float r,float theta){
+    r = 10.0, theta = 30.0;//本来は超音波センサから取得した値が入る
     sint div = 15;
     rep(i,180/div){
         right_rotate(div);
