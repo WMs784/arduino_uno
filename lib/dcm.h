@@ -9,16 +9,16 @@
 //   pinMode(motor21, OUTPUT);
 //   pinMode(motor22, OUTPUT);
 // }
-const int motor11 = 2;
-const int motor12 = 3;
-const int motor21 = 6;
-const int motor22 = 5;
-const int PWM = A5;
-const int pinA = 7;
-const int pinB = 8;
-// const int echoPin1 = A0; //前方
-// const int echoPin2 = A1; //後方
-// const int trigPin = A2;
+#define motor11 = 2;
+#define motor12 = 3;
+#define motor21 = 6;
+#define motor22 = 5;
+#define PWM = A5;
+#define pinA = 7;
+#define pinB = 8;
+// #define echoPin1 = A0; //前方
+// #define echoPin2 = A1; //後方
+// #define trigPin = A2;
 // double duration1 = 0;
 // double distance1 = 0;
 // double duration2 = 0;

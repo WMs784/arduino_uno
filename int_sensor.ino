@@ -1,11 +1,10 @@
-#include <SD.h>
 #include "ArduinoSTL.h" 
 #include "vector"
 #include "iostream"
 #include "string"
 #include "queue"
 #include "sensor.h"
-#include "sd/ver1.cpp"
+// #include "sd/ver1.cpp"
 //#include "scan_simulate.h"
 //#include "bits/stdc++.h"
 
