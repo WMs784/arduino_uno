@@ -4,7 +4,7 @@
 #include "lib/rot_enc.h"
 #include "lib/ult_snc.h"
 #include "lib/mag.h"
-#include "sd/ver1.cpp"
+// #include "sd/ver1.cpp"
 
 
 void setup_sensors(){
@@ -16,5 +16,5 @@ void setup_sensors(){
     set_rot_enc();
     set_ult_snc();
     setup_qmc5883();
-    setup_sd();
+    // setup_sd();
 }
