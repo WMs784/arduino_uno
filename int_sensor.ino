@@ -76,12 +76,15 @@ vector<float> move(sint cur,sint goal){
     }
 }
 
-void scan(float r,float theta){
-    r = 10.0, theta = 30.0;//本来は超音波センサから取得した値が入る
+void scan(){
+    float r1 = 10.0,r2 = 10.0, theta1 = 30.0, theta2 = 30.0;//本来は超音波センサから取得した値が入る
     sint div = 15;
     rep(i,180/div){
         right_rotate(div);
-        set_map(r,i*div);
+        r1 = dis1();
+        set_map(r1,i*div);
+        r2 = dis2();
+        set_map(r2,i*div+180);
     }
     que.push(100*cur_x+cur_y);
     cout << bfs() << endl;
@@ -95,7 +98,6 @@ void scan(float r,float theta){
     }
     sint cur = cur_x*100+cur_y;
     vector<float> trans = move(cur,bfs());
-    // rep(i,2)Serial.println(trans[i]);
 }
 
 sint find(){//次の移動場所を返す関数
@@ -131,7 +133,7 @@ void loop() {
   delay(1000);
   myservo.write(70);    //プーリー上げる
   delay(1000);
-  right_rotate(60);
+  scan();
   digitalWrite(WHITE, LOW);
   int time = millis();
   Serial.println(time);
