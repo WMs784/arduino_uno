@@ -4,9 +4,6 @@
 #include "string"
 #include "queue"
 #include "sensor.h"
-// #include "sd/ver1.cpp"
-//#include "scan_simulate.h"
-//#include "bits/stdc++.h"
 
 #define rep(i,n) for(short int i = 0;i <(short int)n;i++)
 #define sint short int
@@ -16,14 +13,11 @@ using namespace std;
 #define length 20
 #define width 10
 #define det_dis 10
-//const sint length = 20,width = 20, det_dis = 5;
 char cur_x = length/2, cur_y = width/2;
 char tg_x = 0,tg_y = 0;
 char field_map[length][width];
-// vector<vector<sint> > field_map(length,vector<sint>(width,1));
 const sint dx[4] = {0,1,0,-1}, dy[4] = {1,0,-1,0};
 bool seen[length][width];
-// vector<vector<bool> > seen(length,vector<bool>(width,false));
 queue<sint> que;
 
 //map 0:障害物なし,1:未探査,2:障害物あり 
